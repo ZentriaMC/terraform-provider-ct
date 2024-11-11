@@ -9,6 +9,7 @@ data "ct_config" "worker" {
   content      = file("worker.yaml")
   strict       = true
   pretty_print = false
+  files_dir    = null
 
   snippets = [
     file("units.yaml"),
@@ -29,6 +30,7 @@ See the [Flatcar Container Linux](examples/flatcar-linux.tf) or [Fedora CoreOS](
 * `strict` - strictly treat validation warnings as errors (default: false).
 * `pretty_print` - indent transpiled Ignition for visual prettiness (default: false)
 * `snippets` - list of Butane snippets to merge into the content. Content and snippet configs must have the same `version` and `variant`.
+* `files_dir` - allow embedding local files relative to this directory (default: nil)
 
 ## Argument Attributes
 
