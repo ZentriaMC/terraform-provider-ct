@@ -2,6 +2,7 @@ export CGO_ENABLED:=0
 
 VERSION=$(shell git describe --tags --match=v* --always)
 SEMVER=$(shell git describe --tags --match=v* --always | cut -c 2-)
+PGP_KEY_ID = 0x1B3F9523B542D315
 
 .PHONY: all
 all: build test vet fmt
@@ -60,7 +61,7 @@ _output/%/terraform-provider-ct:
 
 release-sign:
 	cd _output; sha256sum *.zip > terraform-provider-ct_$(SEMVER)_SHA256SUMS
-	gpg --default-key 0x8F515AD1602065C8 --detach-sign _output/terraform-provider-ct_$(SEMVER)_SHA256SUMS
+	gpg --default-key $(PGP_KEY_ID) --detach-sign _output/terraform-provider-ct_$(SEMVER)_SHA256SUMS
 
 release-verify: NAME=_output/terraform-provider-ct
 release-verify:
