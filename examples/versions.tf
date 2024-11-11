@@ -4,9 +4,9 @@ terraform {
   required_providers {
     local = "~> 2.0"
     ct = {
-      source  = "poseidon/ct"
+      source  = "ZentriaMC/ct"
       version = "~> 0.13.0"
-      #source  = "terraform.localhost/poseidon/ct"
+      #source  = "terraform.localhost/ZentriaMC/ct"
       #version = "0.12.0"
     }
   }

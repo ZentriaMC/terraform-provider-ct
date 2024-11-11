@@ -9,7 +9,7 @@ all: build test vet fmt
 
 .PHONY: build
 build:
-	@go build -o $@ github.com/poseidon/terraform-provider-ct
+	@go build -o $@ github.com/ZentriaMC/terraform-provider-ct
 
 .PHONY: test
 test:
@@ -43,7 +43,7 @@ release: \
 
 _output/plugin-%.zip: NAME=terraform-provider-ct_$(SEMVER)_$(subst -,_,$*)
 _output/plugin-%.zip: DEST=_output/$(NAME)
-_output/plugin-%.zip: LOCAL=$(HOME)/.terraform.d/plugins/terraform.localhost/poseidon/ct/$(SEMVER)
+_output/plugin-%.zip: LOCAL=$(HOME)/.terraform.d/plugins/terraform.localhost/ZentriaMC/ct/$(SEMVER)
 _output/plugin-%.zip: _output/%/terraform-provider-ct
 	@mkdir -p $(DEST)
 	@cp _output/$*/terraform-provider-ct $(DEST)/terraform-provider-ct_$(VERSION)
@@ -57,7 +57,7 @@ _output/darwin-amd64/terraform-provider-ct: GOARGS = GOOS=darwin GOARCH=amd64
 _output/darwin-arm64/terraform-provider-ct: GOARGS = GOOS=darwin GOARCH=arm64
 _output/windows-amd64/terraform-provider-ct: GOARGS = GOOS=windows GOARCH=amd64
 _output/%/terraform-provider-ct:
-	$(GOARGS) go build -o $@ github.com/poseidon/terraform-provider-ct
+	$(GOARGS) go build -o $@ github.com/ZentriaMC/terraform-provider-ct
 
 release-sign:
 	cd _output; sha256sum *.zip > terraform-provider-ct_$(SEMVER)_SHA256SUMS

@@ -1,11 +1,12 @@
 # terraform-provider-ct
-[![GoDoc](https://pkg.go.dev/badge/github.com/poseidon/terraform-provider-ct.svg)](https://pkg.go.dev/github.com/poseidon/terraform-provider-ct)
-[![Workflow](https://github.com/poseidon/terraform-provider-ct/actions/workflows/test.yaml/badge.svg)](https://github.com/poseidon/terraform-provider-ct/actions/workflows/test.yaml?query=branch%3Amain)
-![Downloads](https://img.shields.io/github/downloads/poseidon/terraform-provider-ct/total)
-[![Sponsors](https://img.shields.io/github/sponsors/poseidon?logo=github)](https://github.com/sponsors/poseidon)
-[![Mastodon](https://img.shields.io/badge/follow-news-6364ff?logo=mastodon)](https://fosstodon.org/@poseidon)
+[![GoDoc](https://pkg.go.dev/badge/github.com/ZentriaMC/terraform-provider-ct.svg)](https://pkg.go.dev/github.com/ZentriaMC/terraform-provider-ct)
+[![Workflow](https://github.com/ZentriaMC/terraform-provider-ct/actions/workflows/test.yaml/badge.svg)](https://github.com/ZentriaMC/terraform-provider-ct/actions/workflows/test.yaml?query=branch%3Amain)
+![Downloads](https://img.shields.io/github/downloads/ZentriaMC/terraform-provider-ct/total)
+[![Sponsors](https://img.shields.io/github/sponsors/ZentriaMC?logo=github)](https://github.com/sponsors/ZentriaMC)
 
 `terraform-provider-ct` allows Terraform to validate a [Butane config](https://coreos.github.io/butane/specs/) and transpile to an [Ignition config](https://coreos.github.io/ignition/) for machine consumption.
+
+This is a fork of [poseidon/terraform-provider-ct](poseidon/terraform-provider-ct)
 
 ## Usage
 
@@ -17,7 +18,7 @@ provider "ct" {}
 terraform {
   required_providers {
     ct = {
-      source  = "poseidon/ct"
+      source  = "ZentriaMC/ct"
       version = "0.13.0"
     }
   }
@@ -92,16 +93,16 @@ $ terraform init
 
 ## Versions
 
-Butane configs are converted to the current (according to this provider) stable Ignition config and merged together. For example, `poseidon/ct` `v0.12.0` would convert a Butane Config with `variant: fcos` and `version: 1.2.0` to an Ignition config with version `v3.3.0`. This relies on Ignition's [forward compatibility](https://github.com/coreos/ignition/blob/main/config/v3_3/config.go#L61).
+Butane configs are converted to the current (according to this provider) stable Ignition config and merged together. For example, `ZentriaMC/ct` `v0.12.0` would convert a Butane Config with `variant: fcos` and `version: 1.2.0` to an Ignition config with version `v3.3.0`. This relies on Ignition's [forward compatibility](https://github.com/coreos/ignition/blob/main/config/v3_3/config.go#L61).
 
-| poseidon/ct           | Butane variant | Butane version | Ignition verison |
+| ZentriaMC/ct           | Butane variant | Butane version | Ignition verison |
 |-----------------------|----------------|----------------|------------------|
 | 0.13.x                | fcos    | 1.0.0, 1.1.0, 1.2.0, 1.3.0, 1.4.0, 1.5.0 | 3.4.0 |
 | 0.13.x                | flatcar | 1.0.0, 1.1.0                      | 3.4.0 |
 | 0.12.x                | fcos    | 1.0.0, 1.1.0, 1.2.0, 1.3.0, 1.4.0 | 3.3.0 |
 | 0.12.x                | flatcar | 1.0.0                             | 3.3.0 |
 
-Before `poseidon/ct` v0.12.0, `ct_config` content could be a Butane Config or a Container Linux Config (CLC). Before `poseidon/ct` v0.10.0, Butane configs contained a `version` that was associated with an Ignition format version. For example, a Butane config with `version: 1.0.0` would produce an Ignition config with version `3.0.0`.
+Before `ZentriaMC/ct` v0.12.0, `ct_config` content could be a Butane Config or a Container Linux Config (CLC). Before `ZentriaMC/ct` v0.10.0, Butane configs contained a `version` that was associated with an Ignition format version. For example, a Butane config with `version: 1.0.0` would produce an Ignition config with version `3.0.0`.
 
 | terraform-provider-ct | CLC to Ignition     | Butane to Ignition    |
 |-----------------------|---------------------|--------------------|

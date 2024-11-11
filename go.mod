@@ -1,4 +1,4 @@
-module github.com/poseidon/terraform-provider-ct
+module github.com/ZentriaMC/terraform-provider-ct
 
 go 1.22.0
 
